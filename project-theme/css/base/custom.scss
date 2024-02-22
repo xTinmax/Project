@@ -1,0 +1,50 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-size: 1.1rem;
+}
+@media screen and (max-width:600px) {
+    .margins{
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+    
+}
+
+.banner {
+    position: relative;
+    height: 700px;
+    display: flex;
+    
+
+    img {
+        object-fit: cover;
+        width: 100%;
+        
+    }
+    .center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 40px;
+      }
+      
+}
+.margin-top {
+    margin-top: 7.5rem;
+}
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 0;
+    p {
+        width: 100%;
+        line-height: 1.8rem;
+    }
+  }
+  .intro {
+    text-align: center;
+  }
+  

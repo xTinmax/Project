@@ -1,0 +1,58 @@
+.margin-left {
+    margin-left: -2.5rem;
+}
+
+.container {
+    .ul {
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .li {
+        margin-right: 2rem;
+        list-style: none;
+    }
+    .li.active {
+        color: pink;
+        text-decoration: underline;
+    }
+    .sub-container {
+        margin-top: 4rem;
+        height: 300px;
+        position: relative;
+
+        .block {
+            min-width: 100%;
+            position: absolute;
+            top: 0;
+            visibility: hidden;
+            .title{
+            font-size: 1.2rem;
+        }
+        
+    }
+    
+   
+    }
+    .block.active {
+        visibility: visible;
+    }
+    
+
+
+}
+.sub-container.visible {
+    height: 700px;
+}
+.items {
+    min-width: 100%;
+    max-width: 600px;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 80% 10%;
+    gap: 2rem;
+    
+}

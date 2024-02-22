@@ -1,0 +1,50 @@
+
+.main-navigation {
+    width: 99%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    z-index: 1;
+    a {
+        margin:  1rem;
+        color: white;
+        text-decoration: none;
+    }
+    img {
+        margin:  1rem;
+        cursor: pointer;
+    }
+}
+.menu-menu-1-container {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    place-items: center;
+
+    background-color: rgba(0,0,0,.5);
+    ul {
+        padding: 0px;
+        display: block;
+        text-align: center;
+        li {
+            user-select: none;
+            list-style: none;
+            font-size: 3.5rem;
+            line-height: 7rem;
+
+        }
+    }
+
+}
+.overlay {
+    visibility: visible;
+}
