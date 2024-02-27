@@ -46,13 +46,14 @@
 }
 
 .boton{
-    width: 80%;
+    width: 100%;
+    transition: all .3s;
     
     a{
         padding: 1rem;
-        background-color: black;
-        border: 1px solid black;
-        color: pink;
+        background-color: var(--main-color);
+        border: 1px solid var(--text-color);
+        color: var(--text-color);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -65,8 +66,9 @@
 .boton:hover {
     
     a {
-        color: black;
-        background-color: pink;
+        color: var(--main-color);
+        background-color: var(--text-color);
+        transition: all .3s;
     }
 }
 

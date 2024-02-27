@@ -311,11 +311,18 @@ template {
   display: none;
 }
 
+:root {
+  --main-color: #ffffff;
+  --text-color: #000000;
+}
+
 body {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
   font-size: 1.1rem;
+  background-color: var(--main-color);
+  color: var(--text-color);
 }
 
 @media screen and (max-width: 600px) {
@@ -343,7 +350,7 @@ body {
 }
 
 .margin-top {
-  margin-top: 7.5rem;
+  margin-top: 10rem;
 }
 
 .container {
@@ -375,30 +382,30 @@ body {
   margin-right: 2rem;
   list-style: none;
 }
+.container .show-li:nth-child(1) {
+  filter: invert(100%);
+  text-decoration: underline;
+}
 .container .li.active {
-  color: pink;
+  filter: invert(100%);
   text-decoration: underline;
 }
 .container .sub-container {
   margin-top: 4rem;
-  height: 300px;
-  position: relative;
 }
 .container .sub-container .block {
   min-width: 100%;
-  position: absolute;
   top: 0;
-  visibility: hidden;
+  display: none;
 }
 .container .sub-container .block .title {
   font-size: 1.2rem;
 }
-.container .block.active {
-  visibility: visible;
+.container .show:nth-child(1) {
+  display: block;
 }
-
-.sub-container.visible {
-  height: 700px;
+.container .block.active {
+  display: block;
 }
 
 .items {
@@ -484,13 +491,14 @@ body {
   }
 }
 .boton {
-  width: 80%;
+  width: 100%;
+  transition: all 0.3s;
 }
 .boton a {
   padding: 1rem;
-  background-color: black;
-  border: 1px solid black;
-  color: pink;
+  background-color: var(--main-color);
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -500,8 +508,9 @@ body {
 }
 
 .boton:hover a {
-  color: black;
-  background-color: pink;
+  color: var(--main-color);
+  background-color: var(--text-color);
+  transition: all 0.3s;
 }
 
 .section-text h1 {
@@ -535,10 +544,12 @@ body {
   list-style: none;
   margin: 0.7rem;
 }
-.links img {
-  filter: invert(100%);
+.links svg {
   width: 22px;
   height: 22px;
+}
+.links svg path {
+  fill: var(--text-color);
 }
 
 .site-footer {
@@ -559,16 +570,13 @@ body {
 }
 .main-navigation a {
   margin: 1rem;
-  color: white;
+  color: var(--text-color);
   text-decoration: none;
-}
-.main-navigation img {
-  margin: 1rem;
-  cursor: pointer;
 }
 
 .menu-menu-1-container {
   visibility: hidden;
+  opacity: 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -579,6 +587,7 @@ body {
   display: grid;
   place-items: center;
   background-color: rgba(0, 0, 0, 0.5);
+  transition: all 1s;
 }
 .menu-menu-1-container ul {
   padding: 0px;
@@ -594,8 +603,103 @@ body {
   line-height: 7rem;
 }
 
+.menu-menu-2-container ul {
+  padding: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+}
+@media screen and (max-width: 500px) {
+  .menu-menu-2-container ul {
+    flex-direction: column;
+  }
+}
+.menu-menu-2-container ul li {
+  font-size: 1.2rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  list-style: none;
+}
+@media screen and (max-width: 500px) {
+  .menu-menu-2-container ul li {
+    line-height: 1.5rem;
+  }
+}
+
 .overlay {
   visibility: visible;
+  opacity: 1;
+}
+
+.menu-icon {
+  margin: 1rem;
+  margin-top: 1.5rem;
+  margin-left: 5rem;
+  height: 22px;
+  width: 22px;
+  z-index: 100;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .menu-icon {
+    margin-left: 1rem;
+  }
+}
+#nav-icon3 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+#nav-icon3 span {
+  display: block;
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background: var(--text-color);
+  border-radius: 1px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+}
+
+#nav-icon3 span:nth-child(1) {
+  top: 0px;
+}
+
+#nav-icon3 span:nth-child(2), #nav-icon3 span:nth-child(3) {
+  top: 9px;
+}
+
+#nav-icon3 span:nth-child(4) {
+  top: 18px;
+}
+
+#nav-icon3.open span:nth-child(1) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+#nav-icon3.open span:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+#nav-icon3.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+#nav-icon3.open span:nth-child(4) {
+  top: 9px;
+  width: 0%;
+  left: 50%;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

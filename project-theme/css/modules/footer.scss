@@ -6,8 +6,11 @@
     li { list-style: none;
         margin: 0.7rem;
     }
-    img {
-        filter: invert(100%);
+    svg {
+        path {
+            fill: var(--text-color);
+        }
+        
         width: 22px;
         height: 22px;
         

@@ -2,9 +2,7 @@
 require_once(__DIR__ . '/Utils.php');
 get_header();
 ?>
-
 <main>
-
 
 <div class="banner">
 <?= Utils::imgLazyFromPost($post, 'large') ?>
@@ -12,29 +10,29 @@ get_header();
 </div>
 
 <article>
-<section class="margin-top">
-    <div class="container">
+<section id="intro" class="margin-top margins">
+    <div class="container intro">
         <p><?php echo get_field('intro'); ?></p>
     </div>
 </section>
 
 
-<section class="margin-top">
-    <div class="container ">
+<section id="tabs" class="margin-top margins">
+    <div class="container">
         <ul class="ul margin-left">
             <?php
             $menu = get_field('menu');
             foreach($menu as $name) : ?>
-            <li class="li"><?php echo $name['name']; ?></li>
+            <li class="li show-li"><?php echo $name['name']; ?></li>
             <?php endforeach; ?>
         </ul>
 
-        <div class="sub-container hide">
+        <div class="sub-container">
             
             <?php
             foreach($menu as $name) : 
             $section = $name['sections']; ?>
-            <div class="block ">
+            <div class="block show">
                 <?php foreach($section as $title) :?>
                     <?php $items = $title['items']; ?> 
                     <div>
@@ -56,7 +54,7 @@ get_header();
 </section>
         
 
-<section>
+<section id="gallery" class="margin-top margins">
     <div class="gallery">
             <?php
             $gallery = get_field('gallery');
@@ -72,7 +70,7 @@ get_header();
     $sections = get_field('sections');
     foreach($sections as $section):
     ?>
-    <section class="margin-top">
+<section id="section1" class="margin-top margins">
     <div class="container section ">
         <h1><?php echo $section['title']; ?></h1>
         <div class="content">
@@ -87,31 +85,39 @@ get_header();
     </div>
     <?php endforeach; ?>
 </section>
-<section class="margin-top">
+<section id="section2" class="margin-top margins">
         <div class="container section-text">
             <h1><?php echo get_field('section_text')['title']; ?></h1>
             <p><?php echo get_field('section_text')['description']; ?></p>
         </div>
 </section>
-<section>
+<?php 
+$email = get_field('email', 'option');
+$phone = get_field('phone', 'option');
+$address = get_field('address', 'option');
+$map = get_field('map', 'option');
+?>
+<section id="contact" class="margins">
         <div class="container section-contact">
-            <p>Email: blizzardhakuba@gmail.com</p>
-            <p>Tel: blizzardhakuba@gmail.com</p>
-            <p>Address: 4836 Hokujo, Hakuba, Kitaazumi District, Nagano 399-9301</p>
+            <?php if(isset($email)): ?>
+            <p>Email: <?php echo get_field('email', 'option'); ?></p>
+            <?php endif;
+            if(isset($phone)): ?>
+            <p>Tel: <?php echo get_field('phone', 'option'); ?></p>
+            <?php endif;
+            if(isset($address)): ?>
+            <p>Address: <?php if(isset($map)): ?>
+                        <a href="<?php echo get_field('map', 'option'); ?>">
+                        <?php endif; ?>
+                <?php echo get_field('address', 'option'); ?>
+                <?php if(isset($map)): ?>
+            </a>
+            <?php endif; ?>
+            </p>
+            <?php endif; ?>
         </div>
 </section>
-<?php 
-            
-    echo '<pre>';
-    var_dump(get_option( 'email', 'pato' ));
-    echo '</pre>';
-    ?>
-
 </article>
-
-
-
-
 </main>
 
 <?php get_footer(); ?>
