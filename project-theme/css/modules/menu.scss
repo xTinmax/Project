@@ -17,11 +17,11 @@
         list-style: none;
     }
     .show-li:nth-child(1){
-        filter: invert(100%);
+        color: color-mix(in srgb, var(--text-color) 50%, var(--main-color) 50%);
         text-decoration: underline;
     }
     .li.active {
-        filter: invert(100%);
+        color: color-mix(in srgb, var(--text-color) 50%, var(--main-color) 50%);
         text-decoration: underline;
     }
     .sub-container {

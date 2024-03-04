@@ -1,5 +1,8 @@
 <?php 
-
+if ( ! defined( '_S_VERSION' ) ) {
+	// Replace the version number of the theme on each release.
+	define( '_S_VERSION', 'mar-04');
+}
 
 add_theme_support( 'post-thumbnails' );
 
@@ -11,12 +14,10 @@ add_theme_support( 'post-thumbnails' );
 	);
 
 
-
-
 function project_files() {
-    wp_enqueue_script('menu-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
-    wp_enqueue_style('project_main_styles', get_theme_file_uri('/build/style-index.css'));
-    wp_enqueue_style('project_extra_styles', get_theme_file_uri('/build/index.css'));
+    wp_enqueue_script('menu-js', get_theme_file_uri('/build/index.js'), ['jquery'], _S_VERSION, TRUE);
+    wp_enqueue_style('project_main_styles', get_theme_file_uri('/build/style-index.css'), [], _S_VERSION);
+    wp_enqueue_style('project_extra_styles', get_theme_file_uri('/build/index.css'), [], _S_VERSION);
 }
 
 

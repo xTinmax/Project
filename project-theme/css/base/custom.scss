@@ -14,13 +14,12 @@ body {
     background-color: var(--main-color);
     color: var(--text-color);
 }
-@media screen and (max-width:600px) {
-    .margins{
-        margin-left: 3%;
-        margin-right: 3%;
-    }
-    
+
+.margins{
+        padding: 0 15px;
 }
+    
+
 
 .banner {
     position: relative;
@@ -48,7 +47,7 @@ body {
 .container {
     max-width: 600px;
     margin: auto;
-    padding: 0;
+    padding: 0 ;
     p {
         width: 100%;
         line-height: 1.8rem;
@@ -58,3 +57,10 @@ body {
     text-align: center;
   }
   
+  section {
+    opacity: 0;
+    transition: all 1.5s;
+  }
+  .section-appear {
+    opacity: 1;
+  }

@@ -17,6 +17,7 @@
 <header id="masthead" class="site-header" >
 		
 		<nav id="site-navigation" class="main-navigation">
+			<?php if ( has_nav_menu( 'menu-1' ) ) { ?>
             <div class="menu-icon">
 				<div id="nav-icon3">
 					<span></span>
@@ -28,21 +29,29 @@
 			
 			
 			<?php
-			wp_nav_menu(
+			
+				wp_nav_menu(
 				array(
 					'theme_location' => 'menu-1',
 					'menu_id'        => 'primary-menu',
 				)
 			);
+		   }
+			
 			?>
             
+
+
 			<?php
-			wp_nav_menu(
+			if ( has_nav_menu( 'menu-2' ) ) {
+				wp_nav_menu(
 				array(
 					'theme_location' => 'menu-2',
 					'menu_id'        => 'secundary-menu',
 				)
 			);
+		   }
+			
 			?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->

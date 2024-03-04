@@ -325,12 +325,10 @@ body {
   color: var(--text-color);
 }
 
-@media screen and (max-width: 600px) {
-  .margins {
-    margin-left: 3%;
-    margin-right: 3%;
-  }
+.margins {
+  padding: 0 15px;
 }
+
 .banner {
   position: relative;
   height: 700px;
@@ -367,6 +365,15 @@ body {
   text-align: center;
 }
 
+section {
+  opacity: 0;
+  transition: all 1.5s;
+}
+
+.section-appear {
+  opacity: 1;
+}
+
 .margin-left {
   margin-left: -2.5rem;
 }
@@ -383,11 +390,11 @@ body {
   list-style: none;
 }
 .container .show-li:nth-child(1) {
-  filter: invert(100%);
+  color: color-mix(in srgb, var(--text-color) 50%, var(--main-color) 50%);
   text-decoration: underline;
 }
 .container .li.active {
-  filter: invert(100%);
+  color: color-mix(in srgb, var(--text-color) 50%, var(--main-color) 50%);
   text-decoration: underline;
 }
 .container .sub-container {
@@ -433,20 +440,26 @@ body {
   height: auto;
 }
 .gallery-image img {
+  aspect-ratio: 3/2;
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
   height: 100%;
 }
 
-.gallery-image:nth-child(2) {
-  grid-row-start: span 2;
+.gallery-image:nth-child(3) {
+  grid-column: 2/3;
+  grid-row: 1/3;
 }
 
 @media screen and (max-width: 600px) {
   .gallery {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+  }
+  .gallery-image:nth-child(3) {
+    grid-column: auto;
+    grid-row: span 2;
   }
 }
 .section {
@@ -468,6 +481,7 @@ body {
   height: auto;
 }
 .content .content-image img {
+  aspect-ratio: 4/3;
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
@@ -561,17 +575,22 @@ body {
 }
 
 .main-navigation {
-  width: 99%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  position: absolute;
-  z-index: 1;
+  position: fixed;
+  z-index: 10;
+  transition: all 2s;
 }
 .main-navigation a {
   margin: 1rem;
   color: var(--text-color);
   text-decoration: none;
+}
+
+.nav-color {
+  background-color: color-mix(in srgb, var(--text-color), var(--main-color));
 }
 
 .menu-menu-1-container {
@@ -586,7 +605,7 @@ body {
   height: 100%;
   display: grid;
   place-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: color-mix(in srgb, var(--main-color) 90%, transparent);
   transition: all 1s;
 }
 .menu-menu-1-container ul {
@@ -700,6 +719,10 @@ body {
   top: 9px;
   width: 0%;
   left: 50%;
+}
+
+.body-stop {
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

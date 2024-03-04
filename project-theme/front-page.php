@@ -9,15 +9,15 @@ get_header();
 <div class="center"><img src="<?php echo get_field('logo') ['sizes'] ['large']; ?>);" alt=""></div>
 </div>
 
-<article>
-<section id="intro" class="margin-top margins">
+<article class="margins">
+<section id="intro" class="margin-top">
     <div class="container intro">
         <p><?php echo get_field('intro'); ?></p>
     </div>
 </section>
 
 
-<section id="tabs" class="margin-top margins">
+<section id="tabs" class="margin-top ">
     <div class="container">
         <ul class="ul margin-left">
             <?php
@@ -54,13 +54,16 @@ get_header();
 </section>
         
 
-<section id="gallery" class="margin-top margins">
+<section id="gallery" class="margin-top ">
     <div class="gallery">
             <?php
+            $count = 0;
             $gallery = get_field('gallery');
             foreach($gallery as $images):
+                $count++;
+                if($count > 5) { break;}
             $sizes = $images['sizes']; ?>
-            <div class="gallery-image"><img src="<?php echo $sizes['medium']; ?>);" alt=""></div>
+            <div class="gallery-image"><img src="<?php echo $sizes['large']; ?>" srcset="<?php echo $sizes['thumbnail']; ?> 300w, <?php echo $sizes['medium']; ?> 1000w, <?php echo $sizes['large']; ?> 2000w" sizes="(max-width: 300px) 300px, (max-width: 500px) 1000px, (max-width: 1000px) 2000px" alt=""></div>
             <?php endforeach; ?>    
     </div>
 </section>
@@ -70,12 +73,13 @@ get_header();
     $sections = get_field('sections');
     foreach($sections as $section):
     ?>
-<section id="section1" class="margin-top margins">
+
+<section id="section1" class="margin-top ">
     <div class="container section ">
         <h1><?php echo $section['title']; ?></h1>
         <div class="content">
             <div class="content-image">
-                <img src="<?php echo $section['image']['sizes']['medium']; ?>" alt="">
+                <img src="<?php echo $section['image']['sizes']['large']; ?>" srcset="<?php echo $section['image']['sizes']['thumbnail']; ?> 300w, <?php echo $section['image']['sizes']['medium']; ?> 1000w, <?php echo $section['image']['sizes']['large']; ?> 2000w" sizes="(max-width: 300px) 300px, (max-width: 500px) 1000px, (max-width: 1000px) 2000px" alt="">
             </div>
             <div class="content-text">
                 <div class="description-text"><?php echo $section['description']; ?></div>
@@ -85,7 +89,7 @@ get_header();
     </div>
     <?php endforeach; ?>
 </section>
-<section id="section2" class="margin-top margins">
+<section id="section2" class="margin-top ">
         <div class="container section-text">
             <h1><?php echo get_field('section_text')['title']; ?></h1>
             <p><?php echo get_field('section_text')['description']; ?></p>
@@ -97,7 +101,7 @@ $phone = get_field('phone', 'option');
 $address = get_field('address', 'option');
 $map = get_field('map', 'option');
 ?>
-<section id="contact" class="margins">
+<section id="contact" class="">
         <div class="container section-contact">
             <?php if(isset($email)): ?>
             <p>Email: <?php echo get_field('email', 'option'); ?></p>

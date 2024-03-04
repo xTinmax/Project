@@ -1,17 +1,21 @@
 
 .main-navigation {
-    width: 99%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     
-    position: absolute;
-    z-index: 1;
+    position: fixed;
+    z-index: 10;
     a {
         margin:  1rem;
         color: var(--text-color);
         text-decoration: none;
     }
+    transition: all 2s;
+}
+.nav-color {
+  background-color: color-mix(in srgb, var(--text-color), var(--main-color));
 }
 .menu-menu-1-container {
     visibility: hidden;
@@ -28,7 +32,7 @@
     display: grid;
     place-items: center;
 
-    background-color: rgba(0,0,0,.5);
+    background-color: color-mix(in srgb, var(--main-color) 90%, transparent);
     transition: all 1s;
     ul {
         padding: 0px;
@@ -159,5 +163,8 @@
     top: 9px;
     width: 0%;
     left: 50%;
+  }
+  .body-stop {
+    overflow: hidden;
   }
 
