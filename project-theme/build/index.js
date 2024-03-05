@@ -66,12 +66,15 @@ links.forEach(link => {
 });
 window.addEventListener('scroll', () => {
   const nav = document.querySelector('.main-navigation');
+  const navLogo = document.querySelector('.nav-logo');
   const intro = document.getElementById('intro');
   let introH = intro.offsetTop;
   if (window.scrollY > 100) {
     nav.classList.add('nav-color');
+    navLogo.classList.add('show-logo');
   } else {
     nav.classList.remove('nav-color');
+    navLogo.classList.remove('show-logo');
   }
 });
 window.addEventListener('scroll', () => {

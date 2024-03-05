@@ -10,6 +10,9 @@ body {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-family: "Sorts Mill Goudy", serif;
+    font-weight: 400;
+    font-style: italic;
     font-size: 1.1rem;
     background-color: var(--main-color);
     color: var(--text-color);
@@ -23,7 +26,8 @@ body {
 
 .banner {
     position: relative;
-    height: 700px;
+    height: 100vh;
+    max-height: 150vw;
     display: flex;
     
 

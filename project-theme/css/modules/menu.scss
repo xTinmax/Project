@@ -15,13 +15,14 @@
     .li {
         margin-right: 2rem;
         list-style: none;
+        cursor: pointer;
     }
     .show-li:nth-child(1){
-        color: color-mix(in srgb, var(--text-color) 50%, var(--main-color) 50%);
+        color: var(--selected-tab-color);
         text-decoration: underline;
     }
     .li.active {
-        color: color-mix(in srgb, var(--text-color) 50%, var(--main-color) 50%);
+        color: var(--selected-tab-color);
         text-decoration: underline;
     }
     .sub-container {
@@ -49,8 +50,13 @@
     max-width: 600px;
     margin: 0;
     padding: 0;
-    display: grid;
-    grid-template-columns: 80% 10%;
-    gap: 2rem;
-    
+    display: flex;
+    justify-content: space-between;
+    .menu-name {
+        flex: 1;
+        padding-right: 20px;
+    }
+    .menu-price {
+        width: auto;
+    }
 }

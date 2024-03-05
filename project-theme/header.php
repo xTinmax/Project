@@ -9,6 +9,8 @@
 	:root{
 		--main-color: <?php echo get_field('background_color', 'option') ?>;
 		--text-color: <?php echo get_field('text_color', 'option') ?>;
+		--nav-menu-color: <?php echo get_field('nav_menu_color', 'option') ?>;
+		--selected-tab-color: <?php echo get_field('selected_tab_color', 'option') ?>;
 	}
 </style>
 <body <?php body_class(); ?>">
@@ -40,7 +42,7 @@
 			
 			?>
             
-
+			<div class="nav-logo"><img src="<?php echo get_field('logo') ['sizes'] ['medium']; ?>);" alt=""></div>
 
 			<?php
 			if ( has_nav_menu( 'menu-2' ) ) {
