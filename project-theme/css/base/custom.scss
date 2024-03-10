@@ -61,10 +61,10 @@ body {
     text-align: center;
   }
   
-  section {
+  .section-hide {
     opacity: 0;
     transition: all 1.5s;
-  }
+  } 
   .section-appear {
     opacity: 1;
   }
